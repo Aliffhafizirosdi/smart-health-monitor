@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Health Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="pulse-dot"></span>
+                <h1>Smart Health Monitor</h1>
+            </div>
+            <div class="header-actions">
+                <button id="simulateBtn" class="btn btn-primary" onclick="simulateReading()">
+                    Simulate Sensor Reading
+                </button>
+                <span class="status-badge" id="statusBadge">Live</span>
+            </div>
+        </header>
+
+        <div id="alertsBar" class="alerts-bar"></div>
+
+        <div class="stats-grid">
+            <div class="stat-card heart-rate">
+                <div class="stat-icon">&#10084;</div>
+                <div class="stat-info">
+                    <p class="stat-label">Heart Rate</p>
+                    <h2 class="stat-value" id="hrValue">--</h2>
+                    <p class="stat-unit">BPM</p>
+                </div>
+            </div>
+            <div class="stat-card temperature">
+                <div class="stat-icon">&#127777;</div>
+                <div class="stat-info">
+                    <p class="stat-label">Body Temperature</p>
+                    <h2 class="stat-value" id="tempValue">--</h2>
+                    <p class="stat-unit">&deg;C</p>
+                </div>
+            </div>
+            <div class="stat-card oxygen">
+                <div class="stat-icon">&#128168;</div>
+                <div class="stat-info">
+                    <p class="stat-label">Blood Oxygen (SpO2)</p>
+                    <h2 class="stat-value" id="spo2Value">--</h2>
+                    <p class="stat-unit">%</p>
+                </div>
+            </div>
+            <div class="stat-card pressure">
+                <div class="stat-icon">&#129656;</div>
+                <div class="stat-info">
+                    <p class="stat-label">Blood Pressure</p>
+                    <h2 class="stat-value" id="bpValue">--</h2>
+                    <p class="stat-unit">mmHg</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Heart Rate Trend</h3>
+                <canvas id="hrChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Temperature Trend</h3>
+                <canvas id="tempChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Blood Oxygen Trend</h3>
+                <canvas id="spo2Chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Blood Pressure Trend</h3>
+                <canvas id="bpChart"></canvas>
+            </div>
+        </div>
+
+        <footer>
+            <p>Smart Health Monitor v1.0 | Built with Flask and Chart.js</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
